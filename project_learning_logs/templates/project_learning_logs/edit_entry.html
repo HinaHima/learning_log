@@ -1,0 +1,16 @@
+{% extends "project_learning_logs/base.html" %}
+
+{% block content %}
+
+    <p><a href="{% url 'project_learning_logs:topic' topic.id %}">{{ topic }}</a></p>
+
+    <p>Edit entry:</p>
+
+    <p>Add a new entry:</p>
+    <form action="{% url 'project_learning_logs:edit_entry' entry.id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name='submit'>save changes</button>
+    </form>
+
+{% endblock content %}
